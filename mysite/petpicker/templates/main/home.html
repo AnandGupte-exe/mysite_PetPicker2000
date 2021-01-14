@@ -1,0 +1,76 @@
+{% include 'material/includes/material_css.html' %}
+{% include 'material/includes/material_js.html' %}
+
+{% load material_form %}
+
+<head>
+ <style>
+  body {
+    background-color:#fbb265;
+    color: white;
+  }
+  </style>
+<head>
+<body>
+  <nav>
+      <div class="nav-wrapper orange darken-1">
+        <a href="#" class="brand-logo center"><strong>The PetPicker2000</strong></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        </ul>
+      </div>
+    </nav>
+  <div class="row">
+    <div class="col s12 m12">
+      <div class="card white">
+        <div class="card-content white-text">
+          <span class="card-title"><div class="black-text"><strong>Please Fill Out The Following Form:</strong></div></span>
+          <form method="POST">
+            {% csrf_token %}
+            <br>
+            <p>
+              <label for="Init_Price"><div class="black-text"><strong>1) What is the ideal inital cost for your pet? (US Dollar)</strong></div></label>
+              <input id="Init_Price" name="Init_Price" type='range' />
+            </p>
+            <br>
+            <p>
+              <label for="Main_Time"><div class="black-text"><strong>2) How much time per day do you want to spend maintaning the pet? (minutes)</strong></div></label>
+              <input id="Main_Time" name="Main_Time" type='range' />
+            </p>
+            <br>
+            <p>
+              <label for="Life_Span"><div class="black-text"><strong>3) What is the ideal lifespan for your pet? (years)</strong></div></label>
+              <input id="Life_Span" name="Life_Span" type='range' />
+            </p>
+            <br>
+            <p>
+              <label for="Trainable"><div class="black-text"><strong>4) How trainable would you want your pet to be? (0 = not trainable, 1 = hard, 2 = medium, 3 = easy)</strong></div></label>
+              <input id="Trainable" name="Trainable" type='range' />
+            </p>
+            <br>
+            <p>
+              <label for="Main_Cost"><div class="black-text"><strong>5) What is the ideal monthly cost for your pet? (US Dollar)</strong></div></label>
+              <input id="Main_Cost" name="Main_Cost" type='range' />
+            </p>
+            <br>
+            <p>
+              <label for="Weight"><div class="black-text"><strong>6) What is the ideal weight of your pet? (Pounds)</strong></div></label>
+              <input id="Weight" name="Weight" type='range' />
+            </p>
+            <br>
+            <p>
+              <label for="Lenght"><div class="black-text"><strong>7) What is the ideal length for your pet? (inches)</strong></div></label>
+              <input id="Lenght" name="Lenght" type='range' />
+            </p>
+            <br>
+            <p>
+              <label for="Max_Space"><div class="black-text"><strong>8) What is the maximum space will your pet have access to? (square feet)</strong></div></label>
+              <input id="Max_Space" name="Max_Space" type='range' />
+            </p>
+            <br>
+            <button type="submit" name="_submit" class="btn waves-effect waves-light orange darken-2">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
