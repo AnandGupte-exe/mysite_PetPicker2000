@@ -5,3 +5,4 @@ django-matplotlib==0.1
 numpy==1.18.4
 matplotlib==3.3.2
 whitenoise==5.2.0
+dj_database_url
