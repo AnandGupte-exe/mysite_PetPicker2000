@@ -5,3 +5,4 @@ django-matplotlib==0.1
 numpy==1.18.4
 matplotlib==3.3.2
 dj_database_url==0.5.0
+pathlib==1.0.1
