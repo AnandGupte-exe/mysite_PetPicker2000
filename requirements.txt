@@ -4,3 +4,4 @@ django-material-widgets==1.0.0b3
 django-matplotlib==0.1
 numpy==1.18.4
 matplotlib==3.3.2
+whitenoise==version
