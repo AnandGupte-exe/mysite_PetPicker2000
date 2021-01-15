@@ -11,7 +11,4 @@ $ cd mysite
 
 $ python manage.py runserver
 ```
-The website should now be working. To view it go to
-
-'http://127.0.0.1:8000/'
-in you browser.
+The website should now be working. To view it go to 'http://127.0.0.1:8000/' in you browser.
