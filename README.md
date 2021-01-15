@@ -1,5 +1,5 @@
 # mysite_PetPicker2000
-To install the website owing commands in the directory of choice.
+To install the website fowing commands in the directory of choice.
 ```
 $ git clone https://github.com/AnandGupte-exe/mysite_PetPicker2000.git
 
