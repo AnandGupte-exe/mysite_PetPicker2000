@@ -3,6 +3,8 @@ To install the website owing commands in the directory of choice.
 ```
 $ git clone https://github.com/AnandGupte-exe/mysite_PetPicker2000.git
 
+$ cd mysite_PetPicker2000
+
 $ pip install -r requirements.txt
 
 $ cd mysite
