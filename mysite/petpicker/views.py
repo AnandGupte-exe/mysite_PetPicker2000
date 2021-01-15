@@ -3,9 +3,15 @@ from django.http import HttpResponseRedirect
 from .forms import petpicker_Form
 from .models import petpicker_Model
 from .Pet_Calculator import PetCal
-from .figures import my_figure
+import matplotlib.pyplot as plt
+import urllib, base64
+import io
 
 # Create your views here.
+def About_Page(request):
+    if request.method == "GET":
+        return render(request, 'main/Info_Page.html')
+
 def get_PetData(request):
     global PetData
     if request.method == 'POST':
@@ -29,7 +35,18 @@ def get_PetData(request):
                              obj.Weight,
                              obj.Lenght,
                              obj.Max_Space)
+
+            plt.plot(range(10))
+            fig = plt.gcf()
+            #convert graph into dtring buffer and then we convert 64 bit code into image
+            buf = io.BytesIO()
+            fig.savefig(buf,format='png')
+            buf.seek(0)
+            string = base64.b64encode(buf.read())
+            uri = urllib.parse.quote(string)
+
             return render(request, 'main/Data_view.html', {'Data': PetData})
     else:
+
         form = petpicker_Form()
     return render(request, 'main/home.html', {'form': form})

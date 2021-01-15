@@ -21,4 +21,5 @@ from petpicker import views
 app_name = "petpicker"
 urlpatterns = [
     path("", views.get_PetData, name="Form_view"),
+    path("About_Page", views.About_Page, name='About_Page')
 ]
