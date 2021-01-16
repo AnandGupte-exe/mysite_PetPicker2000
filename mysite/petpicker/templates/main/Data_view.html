@@ -23,6 +23,8 @@
     <div class="nav-wrapper orange darken-1">
       <a href="#" class="brand-logo center"><strong>The PetPicker2000</strong></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="{% url 'petpicker:About_Page'%}">How it Works</a></li>
+        <li><a href="{% url 'petpicker:Form_view'%}">Home</a></li>
       </ul>
     </div>
   </nav>
@@ -72,9 +74,6 @@
             <br>
             <img src="data:image/png;base64, {{Full_Chart|safe}}">
           </div>
-            <div class="card-action">
-            <a href="{% url 'petpicker:Form_view'%}">Go Back</a>
-          </div>
         </div>
       </div>
       <div class="col s6 m6">
@@ -83,9 +82,6 @@
             <h8><strong>Pet Score Heat Map (lower is better):</strong></h8>
             <br>
             <img src="data:image/png;base64, {{Full_Heat|safe}}">
-          </div>
-            <div class="card-action">
-            <a href="{% url 'petpicker:Form_view'%}">Go Back</a>
           </div>
         </div>
       </div>

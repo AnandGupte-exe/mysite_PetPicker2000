@@ -12,7 +12,3 @@ class petpicker_Model(models.Model):
     Weight = models.FloatField(default=0)
     Lenght = models.FloatField(default=0)
     Max_Space = models.FloatField(default=0)
-
-
-class MyModel(models.Model):
-    figure = MatplotlibFigureField(figure='my_figure')

@@ -61,7 +61,7 @@ def get_plot_Full_animal_Data(Full_Data):
 
     plt.rc('font', **font)
     plt.switch_backend('AGG')
-    plt.figure(num=None, figsize=(25, 8), dpi=35, facecolor='w', edgecolor='b')
+    plt.figure(num=None, figsize=(25, 9.1), dpi=36, facecolor='w', edgecolor='b')
     plt.bar(graphPet_names, Full_Data)
     graph = get_graph()
     return graph
@@ -92,7 +92,7 @@ def get_plot_Full_animal_Data_Heat(Graph_data):
                     'Max_Space']
 
     font = {'family' : 'normal',
-            'size'   : 12}
+            'size'   : 13}
 
     plt.rc('font', **font)
     plt.switch_backend('AGG')
@@ -100,7 +100,7 @@ def get_plot_Full_animal_Data_Heat(Graph_data):
     Graph_data = np.transpose(Graph_data)
 
     #make a heat map of data and label it
-    fig, ax = plt.subplots(dpi=58.2)
+    fig, ax = plt.subplots(dpi=68)
     im = ax.imshow(Graph_data)
 
     # We want to show all ticks...

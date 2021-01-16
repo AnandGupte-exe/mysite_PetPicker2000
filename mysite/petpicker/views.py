@@ -46,19 +46,20 @@ def get_PetData(request):
                                                      obj.Lenght,
                                                      obj.Max_Space)
 
-            chart1 = get_plot_animal_Data(PetData, Graph_data, 6)
-            chart2 = get_plot_animal_Data(PetData, Graph_data, 7)
-            chart3 = get_plot_animal_Data(PetData, Graph_data, 8)
+            plot1 = get_plot_animal_Data(PetData, Graph_data, 6)
+            plot2 = get_plot_animal_Data(PetData, Graph_data, 7)
+            plot3 = get_plot_animal_Data(PetData, Graph_data, 8)
 
-            Full_Chart = get_plot_Full_animal_Data(Total_Data)
-            Full_Heat = get_plot_Full_animal_Data_Heat(Graph_data)
+            plot4 = get_plot_Full_animal_Data(Total_Data)
+            plot5 = get_plot_Full_animal_Data_Heat(Graph_data)
+
 
             return render(request, 'main/Data_view.html', {'Data' : PetData,
-                                                            'chart1' : chart1,
-                                                            'chart2' : chart2,
-                                                            'chart3' : chart3,
-                                                            'Full_Chart' : Full_Chart,
-                                                            'Full_Heat' : Full_Heat})
+                                                            'chart1' : plot1,
+                                                            'chart2' : plot2,
+                                                            'chart3' : plot3,
+                                                            'Full_Chart' : plot4,
+                                                            'Full_Heat' : plot5})
 
     else:
 
