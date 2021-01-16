@@ -1,13 +1,133 @@
+import matplotlib.pyplot as plt
+import base64
+from io import BytesIO
+#data manupulation
+import numpy as np
+#more math stuff
+import math as math
+
+
+
+def get_graph():
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    image_png = buffer.getvalue()
+    graph = base64.b64encode(image_png)
+    graph = graph.decode('utf-8')
+    buffer.close()
+    return graph
+
+
+
+def get_plot_animal_Data(Final_Pet, Graph_data, num):
+    graphData_names = ['Init_Price',
+                  'Main_Time',
+                  'Life_Span',
+                  'Trainable',
+                  'Main_Cost',
+                  'Weight',
+                  'Lenght',
+                  'Max_Space'
+                  ]
+    font = {'family' : 'normal',
+        'size'   : 10}
+
+    plt.rc('font', **font)
+    plt.switch_backend('AGG')
+    plt.figure(num=None, figsize=(8, 3), dpi=70, facecolor='w', edgecolor='b')
+    plt.bar(graphData_names, Graph_data[Final_Pet[num]])
+    graph = get_graph()
+    return graph
+
+
+
+def get_plot_Full_animal_Data(Full_Data):
+    graphPet_names = ['Dog',
+                      'Cat',
+                      'Fish',
+                      'Gecko',
+                      'Snake',
+                      'Hamster',
+                      '2 Gin Pigs',
+                      'Rabbits',
+                      '2 Rats',
+                      'Parakeet',
+                      'Frog',
+                      'Tortouise']
+
+    font = {'family' : 'normal',
+            'size'   : 21}
+
+    plt.rc('font', **font)
+    plt.switch_backend('AGG')
+    plt.figure(num=None, figsize=(25, 8), dpi=35, facecolor='w', edgecolor='b')
+    plt.bar(graphPet_names, Full_Data)
+    graph = get_graph()
+    return graph
+
+
+
+def get_plot_Full_animal_Data_Heat(Graph_data):
+    graphPet_names = ['Dog',
+                      'Cat',
+                      'Fish',
+                      'Gecko',
+                      'Snake',
+                      'Hamster',
+                      '2 Gin Pigs',
+                      'Rabbits',
+                      '2 Rats',
+                      'Parakeet',
+                      'Frog',
+                      'Tortouise']
+
+    graphData_names = ['Init_Price',
+                    'Main_Time',
+                    'Life_Span',
+                    'Trainable',
+                    'Main_Cost',
+                    'Weight',
+                    'Lenght',
+                    'Max_Space']
+
+    font = {'family' : 'normal',
+            'size'   : 12}
+
+    plt.rc('font', **font)
+    plt.switch_backend('AGG')
+
+    Graph_data = np.transpose(Graph_data)
+
+    #make a heat map of data and label it
+    fig, ax = plt.subplots(dpi=58.2)
+    im = ax.imshow(Graph_data)
+
+    # We want to show all ticks...
+    ax.set_yticks(np.arange(len(graphData_names)))
+    ax.set_xticks(np.arange(len(graphPet_names)))
+    # ... and label them with the respective list entries
+    ax.set_yticklabels(graphData_names)
+    ax.set_xticklabels(graphPet_names)
+
+    # Rotate the tick labels and set their alignment.
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+             rotation_mode="anchor")
+
+    # Loop over data dimensions and create text annotations.
+    for j in range(len(graphPet_names)):
+        for i in range(len(graphData_names)):
+            text = ax.text(j, i, int(Graph_data[i][j]),
+                           ha="center", va="center", color="k")
+
+    fig.tight_layout()
+    graph = get_graph()
+    return graph
+
+
 
 
 def PetCal(Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8):
-    #data manupulation
-    import numpy as np
-    #more math stuff
-    import math as math
-    #graphs
-    import matplotlib.pyplot as plt
-
 
 
     #data for each pet
@@ -237,4 +357,4 @@ def PetCal(Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8):
 
     Final_Pet = findPet(Score)
 
-    return Final_Pet
+    return Final_Pet, Graph_data, find_Score(Scaled_User_data, Scaled_Init_data)[0]

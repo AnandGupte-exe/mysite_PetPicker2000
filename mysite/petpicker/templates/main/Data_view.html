@@ -9,6 +9,13 @@
     background-color:#fbb265;
     color: white;
   }
+  .card-small {
+    width:620px;
+  }
+
+  .card-large {
+    width:940px;
+  }
   </style>
 <head>
 <body>
@@ -19,28 +26,68 @@
       </ul>
     </div>
   </nav>
-  <div class="row">
-    <div class="col s12 m12 center-align">
-      <div class="card white">
-        <div class="card-content black-text">
-          <span class="card-title"><strong>Pet Data</strong></span>
-          <p><strong>The best pet for you is (a):</strong></p>
-          <p>{{ Data.0 }}</p>
-          <p><a href="{{ Data.3 }}">Click For More Info</a></p>
-          <br>
-          <p><strong>The Second best pet for you is (a):</strong></p>
-          <p>{{ Data.1 }}</p>
-          <p><a href="{{ Data.4 }}">Click For More Info</a></p>
-          <br>
-          <p><strong>The Third best pet for you is (a):</strong></p>
-          <p>{{ Data.2 }}</p>
-          <p><a href="{{ Data.5 }}">Click For More Info</a></p>
-          <br>
-          <div class="card-action">
-            <a href="{% url 'petpicker:Form_view'%}">Go Back</a>
-          </div>
+  <div class="row center-align">
+    <div class="col s4 m4">
+      <div class="card">
+        <div class="card-content black-text center-align">
+          <p><h8><strong>The best pet for you is (a):</strong></h8></p>
+          <p><h5>{{ Data.0 }}</h5></p>
+          <img src="data:image/png;base64, {{chart1|safe}}">
         </div>
+        <div class="card-action">
+          <a href="{{ Data.3 }}">More Info</a>
+        </div>
+      </div>
+    </div>
+    <div class="col s4 m4">
+      <div class="card">
+        <div class="card-content black-text center-align">
+          <p><h8><strong>The second best pet for you is (a):</strong></h8></p>
+          <p><h5>{{ Data.1 }}</h5></p>
+          <img src="data:image/png;base64, {{chart2|safe}}">
+        </div>
+        <div class="card-action">
+          <a href="{{ Data.4 }}">More Info</a>
+        </div>
+      </div>
+    </div>
+    <div class="col s4 l4">
+      <div class="card">
+        <div class="card-content black-text center-align">
+          <p><h8><strong>The third best pet for you is (a):</strong></h8></p>
+          <p><h5>{{ Data.2 }}</h5></p>
+          <img src="data:image/png;base64, {{chart3|safe}}">
+        </div>
+        <div class="card-action">
+          <a href="{{ Data.5 }}">More Info</a>
         </div>
       </div>
     </div>
   </div>
+  <div class="row center-align">
+      <div class="col s6 m6">
+        <div class="card ">
+          <div class="card-content black-text center-align white">
+            <h8><strong>Pet Score Graph (lower is better):</strong></h8>
+            <br>
+            <img src="data:image/png;base64, {{Full_Chart|safe}}">
+          </div>
+            <div class="card-action">
+            <a href="{% url 'petpicker:Form_view'%}">Go Back</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s6 m6">
+        <div class="card ">
+          <div class="card-content black-text center-align white">
+            <h8><strong>Pet Score Heat Map (lower is better):</strong></h8>
+            <br>
+            <img src="data:image/png;base64, {{Full_Heat|safe}}">
+          </div>
+            <div class="card-action">
+            <a href="{% url 'petpicker:Form_view'%}">Go Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
